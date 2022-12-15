@@ -1,7 +1,12 @@
 import * as SC from './Switcher.styled';
 import { HiSwitchHorizontal } from 'react-icons/hi';
+import React from 'react';
 
-export const Switcher = ({ flip }) => {
+interface IProps {
+  flip: Function
+}
+
+export const Switcher: React.FC<IProps> = ({ flip }) => {
   return (
     <SC.Wrapper>
       <HiSwitchHorizontal size="30px" onClick={() => flip()} />

@@ -1,22 +1,28 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Header } from './Header/Header';
 import { Result } from './Result/Result';
 import { Switcher } from './Switcher/Switcher';
 import { InputField } from './Input/Input';
 import { SelectOption } from './Select/SelectOption';
 import * as SC from './App.styled';
-import axios from 'axios';
+import { IInfo } from '../types/info';
 
-export const App = () => {
-  const [info, setInfo] = useState([]);
-  const [input, setInput] = useState(0);
-  const [from, setFrom] = useState('UAH');
-  const [to, setTo] = useState('USD');
-  const [usdRate, setUsdRate] = useState(null);
-  const [eurRate, setEurRate] = useState(null);
-  const [options, setOptions] = useState([]);
-  const [output, setOutput] = useState(0);
-  const [error, setError] = useState(null);
+interface IOptions {
+  label: string,
+  value: string,
+}
+
+export const App: React.FC = () => {
+  const [info, setInfo] = useState<Array<IInfo>>([]);
+  const [input, setInput] = useState<number>(0);
+  const [from, setFrom] = useState<string>('UAH');
+  const [to, setTo] = useState<string>('USD');
+  const [usdRate, setUsdRate] = useState<string>('');
+  const [eurRate, setEurRate] = useState<string>('');
+  const [options, setOptions] = useState<Array<IOptions>>([]);
+  const [output, setOutput] = useState<number>(0);
+  const [error, setError] = useState<any>(null);
 
   useEffect(() => {
     const getCurrency = async () => {
@@ -64,7 +70,7 @@ export const App = () => {
     }
   }, [from, info, input, to]);
 
-  function flip() {
+  function flip(): void {
     const temp = from;
     setFrom(to);
     setTo(temp);

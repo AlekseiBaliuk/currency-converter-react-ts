@@ -1,6 +1,13 @@
+import React from 'react';
 import * as SC from './Header.styled';
 
-export const Header = ({ error, usdRate, eurRate }) => {
+interface IProps {
+  error: any,
+  usdRate: string,
+  eurRate: string,
+}
+
+export const Header: React.FC<IProps> = ({ error, usdRate, eurRate }) => {
   return (
     <header>
       {error && <p>sorry, something wrong, try again...</p>}
