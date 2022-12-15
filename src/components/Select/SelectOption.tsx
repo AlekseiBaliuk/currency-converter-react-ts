@@ -22,9 +22,7 @@ export const SelectOption: React.FC<IProps> = ({
   setFrom,
   placeholderOption,
 }) => {
-  // const optionHandler = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-  //   setFrom(e.label);
-  // };
+
   return (
     <SC.Wrapper>
       <SC.SelectTitle>{title}</SC.SelectTitle>
