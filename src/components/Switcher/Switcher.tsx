@@ -3,7 +3,7 @@ import { HiSwitchHorizontal } from 'react-icons/hi';
 import React from 'react';
 
 interface IProps {
-  flip: Function
+  flip: () => void;
 }
 
 export const Switcher: React.FC<IProps> = ({ flip }) => {

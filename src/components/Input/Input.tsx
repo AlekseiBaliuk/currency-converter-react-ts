@@ -2,12 +2,12 @@ import React from 'react';
 import * as SC from './Input.styled';
 
 interface IProps {
-  setInput: (value: any) => void;
+  setInput: (value: number) => void;
 }
 
 export const InputField: React.FC<IProps> = ({ setInput }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+    setInput(Number(e.target.value));
   };
 
   return (
